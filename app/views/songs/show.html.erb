@@ -1,0 +1,8 @@
+
+<div class="flex-col flex items-center justify-center overflow-x-auto">
+  <h1 class="text-xl font-bold mb-4 mt-5"><%= @song.title %></h1>
+  <div>
+  <%= @song.url.html_safe %>
+  </div>
+  <%= link_to "戻る", songs_path, class: "bg-indigo-700 btn hover:bg-indigo-800 mt-5 text-white" %>
+</div>

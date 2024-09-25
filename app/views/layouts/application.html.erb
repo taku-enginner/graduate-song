@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for(:title) || "Myapp" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title><%= content_for(:title) || "懐かし合唱曲" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= yield :head %>
+  <%= yield :head %>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-  </head>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+</head>
 
-<body class="bg-gray-100 flex flex-col min-h-screen">
-  <header class="bg-blue-600 text-white p-4 flex">
+<body class="min-h-screen flex flex-col">
+  <header class="bg-blue-600 p-4 flex w-full">
     <div class="container mx-auto flex-auto">
-      <h1 class="text-2xl font-bold">懐かし曲検索</h1>
-    </div>
-    <div class="container mx-auto flex-auto">
-      <h1 class="text-2xl font-bold">検索タブ</h1>
-    </div>
-    <div class="container mx-auto flex-auto">
-      <h1 class="text-2xl font-bold">セレクトタブ</h1>
+      <h1 class="text-2xl font-bold text-white">懐かし合唱曲</h1>
     </div>
     <div>
-
+      <%= render "search", q: @q, url: songs_path %>
     </div>
   </header>
-  <main class="container mx-auto mt-8 flex-grow">
+
+  <main class="flex-grow flex justify-center items-start">
     <%= yield %>
   </main>
-  <footer class="bg-gray-800 text-white text-center p-4 mt-8">
-    <p>&copy; 2024 懐かし曲検索. All Rights Reserved.</p>
+
+  <footer class="bg-gray-800 text-white text-center p-4 w-full mt-5">
+    <p>&copy; 2024 懐かし合唱曲. All Rights Reserved.</p>
   </footer>
 </body>
 </html>

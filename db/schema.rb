@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_020303) do
   enable_extension "plpgsql"
 
   create_table "songs", force: :cascade do |t|
-    t.string "period"
     t.string "title"
     t.string "url"
     t.datetime "created_at", null: false
